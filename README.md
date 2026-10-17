@@ -2,9 +2,24 @@
 
 - **Application:** Recommendation systems
 - **Portfolio project:** 08 of 15
-- **Status:** Project brief defined. Dataset acquisition, ML, application and MLOps implementation have not started.
+- **Status:** Source-derived CSV data is committed. ML models, the application and MLOps remain to be implemented.
 
 Part of [Tomas Ferrer's DS/ML portfolio](https://tomasferrer.com/).
+
+## Committed CSV dataset
+
+**Dataset:** goodbooks-10k
+
+**Coverage:** Complete ratings.csv and books.csv tables; ratings split into source-order CSV shards without invented rows.
+
+| CSV file | Rows |
+|---|---:|
+| [book_ratings_001.csv](data/raw/book_ratings_001.csv) | 2,000,000 |
+| [book_ratings_002.csv](data/raw/book_ratings_002.csv) | 2,000,000 |
+| [book_ratings_003.csv](data/raw/book_ratings_003.csv) | 1,976,479 |
+| [books.csv](data/raw/books.csv) | 10,000 |
+
+These are actual published observations or documented format conversions. See [source, license and limitations](data/DATASET.md) and [CSV schemas/checksums](data/csv-manifest.json).
 
 ## Project prompt
 
@@ -20,11 +35,9 @@ Write a short project charter defining the user, current baseline, primary busin
 
 ### Published dataset and raw data
 
-A fixed [MovieLens](https://grouplens.org/datasets/movielens/) release. Confirm demonstration and redistribution permissions; acquire source data through a script rather than assuming they can be committed.
+The committed source is **goodbooks-10k**. Complete ratings.csv and books.csv tables; ratings split into source-order CSV shards without invented rows. See [dataset documentation](data/DATASET.md) for original links, attribution, usage terms and limitations.
 
-**Additional source/access notes:** Fixed release preferable to changing “latest” files. Pin the archive/checksum and observe its terms, including redistribution limitations. Unrated items are not observed negative preferences
-
-Acquire a pinned source release into `data/raw/` and preserve the original bytes. Add a repeatable acquisition script and a manifest containing source URL, release/version, retrieval time, citation, terms, file sizes and SHA-256 checksums. Keep cleaned data in `data/interim/` and model-ready features/split assignments in `data/processed/`. Raw data stay out of Git unless redistribution is explicitly appropriate.
+Acquire a pinned source release into `data/raw/` and preserve the original bytes. Add a repeatable acquisition script and a manifest containing source URL, release/version, retrieval time, citation, terms, file sizes and SHA-256 checksums. Keep cleaned data in `data/interim/` and model-ready features/split assignments in `data/processed/`. Redistributable CSV exports and the documented supporting assets are committed; large source archives remain excluded from Git.
 
 Audit labels, decision-time feature availability, duplicates, missingness, class balance, and temporal/group structure. If the candidate cannot support the task or intended use, find another suitable published dataset or narrow the question. Generated fixtures and economic scenarios are supplementary, clearly labeled artifacts.
 
@@ -38,7 +51,7 @@ Produce a reproducible training command and save the fitted preprocessing, model
 
 ### Evaluation and business impact
 
-Temporal holdout, Recall@K, NDCG@K, catalog coverage, and cold-start behavior. Document the candidate set and limitations of logged ratings.
+Source-order holdout (explicit timestamps are unavailable), Recall@K, NDCG@K, catalog coverage, and cold-start behavior. Document the candidate set and limitations of logged ratings.
 
 Separate development/model selection from final evaluation. Fit transformations on training data only and compare candidate and incumbent on the same evaluation protocol. Save metrics, uncertainty/robustness checks, and representative failure cases with code/data/model identifiers.
 
@@ -75,7 +88,7 @@ Use the smallest architecture that completes this lifecycle. Select real-time or
 
 ## Completion checklist
 
-- [ ] Published source acquired, checksum verified and provenance/profile recorded.
+- [x] Published source acquired, checksum verified and provenance/profile recorded.
 - [ ] Data audit, project charter, success criteria and evaluation protocol complete.
 - [ ] Baseline and trained ML component evaluated; artifacts and failure analysis saved.
 - [ ] Working application deployed with the exact evaluated model version.
@@ -84,4 +97,4 @@ Use the smallest architecture that completes this lifecycle. Select real-time or
 
 ## Current implementation
 
-This repository currently contains the implementation brief and Git exclusions. The dataset links identify starting sources; acquisition and model results will be documented as implementation proceeds.
+Published dataset observations, CSV exports, supporting assets where applicable, and provenance/checksum documentation are present. Models, application functionality and MLOps have not been implemented or evaluated yet.

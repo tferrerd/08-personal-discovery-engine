@@ -1,0 +1,79 @@
+{
+  "dataset": "goodbooks-10k",
+  "source_urls": [
+    "https://github.com/zygmuntz/goodbooks-10k",
+    "https://raw.githubusercontent.com/zygmuntz/goodbooks-10k/master/LICENSE"
+  ],
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "selection": "Complete ratings.csv and books.csv tables; ratings split into source-order CSV shards without invented rows.",
+  "notes": "Attribution: Zygmunt Zaj\u0105c and the goodbooks-10k contributors / Goodreads-derived dataset. Replaces MovieLens because the latter restricts public redistribution. Ratings are published as time-ordered but contain no explicit timestamps, so preserve shard/row order and do not claim calendar-based backtesting. Unrated books are not observed negative preferences.",
+  "generated_at_utc": "2026-10-17T20:55:16.466892+00:00",
+  "files": [
+    {
+      "path": "data/raw/book_ratings_001.csv",
+      "rows": 2000000,
+      "columns": [
+        "user_id",
+        "book_id",
+        "rating"
+      ],
+      "bytes": 23503126,
+      "sha256": "6a4ff2b26656254f8653e66bf144a576bf69247d2fe84629b37b9de22329fe0f"
+    },
+    {
+      "path": "data/raw/book_ratings_002.csv",
+      "rows": 2000000,
+      "columns": [
+        "user_id",
+        "book_id",
+        "rating"
+      ],
+      "bytes": 24368411,
+      "sha256": "84a84b877f68c6f820af7978c9086ebe796e9e211eee194b0d27c4c710683b63"
+    },
+    {
+      "path": "data/raw/book_ratings_003.csv",
+      "rows": 1976479,
+      "columns": [
+        "user_id",
+        "book_id",
+        "rating"
+      ],
+      "bytes": 24255335,
+      "sha256": "7aec6c8c7a97cfac5544604e3bb89edf97eee01cd635ce060ec4b946ef814bfd"
+    },
+    {
+      "path": "data/raw/books.csv",
+      "rows": 10000,
+      "columns": [
+        "book_id",
+        "goodreads_book_id",
+        "best_book_id",
+        "work_id",
+        "books_count",
+        "isbn",
+        "isbn13",
+        "authors",
+        "original_publication_year",
+        "original_title",
+        "title",
+        "language_code",
+        "average_rating",
+        "ratings_count",
+        "work_ratings_count",
+        "work_text_reviews_count",
+        "ratings_1",
+        "ratings_2",
+        "ratings_3",
+        "ratings_4",
+        "ratings_5",
+        "image_url",
+        "small_image_url"
+      ],
+      "bytes": 3286659,
+      "sha256": "4d21d0e0433128657c752e3a3d0405ac0ec11675d6c70c64cb0abf4ab1acb76a"
+    }
+  ],
+  "assets": []
+}
